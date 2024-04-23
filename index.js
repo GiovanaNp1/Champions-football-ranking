@@ -11,11 +11,9 @@ require('dotenv').config()
 
 let values = []; 
 
-require('dotenv').config()
-
 async function fetchData(page) {
     try {
-        const response = await axios.get(`https://v3.football.api-sports.io/players?season=2024&league=475&page=${page}`, { headers });
+        const response = await axios.get(`https://v3.football.api-sports.io/players?season=2023&league=475&page=${page}`, { headers });
         const data = response.data;
         const players = data.response;
         // const players = test.response;
@@ -27,14 +25,14 @@ async function fetchData(page) {
             let team = statistics.team;
             let points = statistics.goals.total;
             let assists = statistics.goals.assists;
-            let appearences = statistics.games.appearences;
+            let appearences = 0
             let level = '';
             let tier_idades = '';
             let tier_idades_index = 0;
             let playerItem = item.player;
 
             points += assists;
-            points += appearences * 5;
+            // points += appearences * 5;
 
             if (points < 15) {
                 level = 'Bronze';
@@ -79,9 +77,7 @@ async function fetchData(page) {
                 appearences
             ];
         });
-
-        values.push(newValues)
-
+        values = values.concat(newValues);
         values.sort((a, b) => b[1] - a[1]);
     } catch (error) {
         console.error('Erro ao obter dados da API:', error);
@@ -89,11 +85,10 @@ async function fetchData(page) {
 }
 
 async function runScript() {
-    for (let page = 1; page <= 2; page++) {
-        await fetchData(page);
+    for (let page = 1; page <= 10; page++) {
+        await fetchData(page)
     }
-
-    runExcelRanking(values[0]);
+    runExcelRanking(values);
 }
 
 runScript();
