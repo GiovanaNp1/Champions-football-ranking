@@ -1,6 +1,6 @@
 ### Gamefication-soccer
 
-![Gamefication-soccer](./campo-de-futebol.png)
+![Gamefication-soccer](./imgs/campo-de-futebol.png)
 
 ## Sobre
 Projeto de Rankeamento do Campeonato Paulista 2023 utilizando os dados do API Football utilizando App Sheet, NodeJs para carregamento de dados e Google Sheet como banco de dados e excel de extração
@@ -37,6 +37,15 @@ Criação de uma plataforma de Gameficação, Os jogadores de futebol representa
 2. Crie um arquivo chamado .env e dele pegue as informações necessarias de credenciais do google e do api-football
 3. Rode `npm run dev` para fazer as instalações necessarias das libs
 4. Rode `node index.js` e logo estará fazendo o processamento para envio de dados a planilha 
+
+
+## Imagens da aplicação
+
+![Dashboards](./imgs/Dashboards.png)
+![Ranking 200 Jogadores](./imgs/Ranking200jogadores.png)
+![Top 10 Jogadores](./imgs/Top10Jogadores.png)
+
+
 
 ## Tecnologias usadas nesse projeto projeto 💻
 
